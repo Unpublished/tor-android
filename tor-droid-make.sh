@@ -43,7 +43,7 @@ build_app()
 {
     echo "Building tor-android"
     build_external_dependencies
-    $ANDROID_HOME/tools/android update project --name $2 --target $3 --path ./tor-android-binary/src/main/
+    # $ANDROID_HOME/tools/android update project --name $2 --target $3 --path ./tor-android-binary/src/main/
 
     if [ -z $1 ] || [ $1 = 'debug' ]; then
         ./gradlew assembleDebug
