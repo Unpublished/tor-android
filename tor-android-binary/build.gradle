@@ -4,14 +4,6 @@ android {
     compileSdkVersion 27
     buildToolsVersion '28.0.3'
 
-    /**
-    sourceSets {
-        main {
-            jni.srcDirs = []
-
-        }
-    }**/
-
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 27
