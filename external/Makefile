@@ -188,7 +188,6 @@ libevent: openssl libevent-build-stamp
 	cp -R libevent/include/event2 include
 
 libevent-clean:
-	-rm -f include/event2
 	-rm -f lib/libevent.a
 	-rm -f libevent-build-stamp
 	-cd libevent && \
