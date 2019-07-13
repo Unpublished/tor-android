@@ -1,0 +1,28 @@
+language: android
+addons:
+  apt:
+    packages:
+    - autogen
+    - automake
+    - autopoint
+    - libtool
+    - lzip
+android:
+  components:
+    - android-29
+    - build-tools-29.0.2
+env:
+  matrix:
+    - REV=19c
+    - REV=20
+before_install:
+  - export ANDROID_NDK_HOME=$HOME/android-ndk-r$REV
+  - if [ ! -f "$ANDROID_NDK_HOME/ndk-build" ]; then curl -L https://dl.google.com/android/repository/android-ndk-r$REV-linux-x86_64.zip -O; unzip -q android-ndk-r$REV-linux-x86_64.zip -d $HOME; fi
+before_script:
+    - ./.travis/install-gettext.sh
+    - export PATH=$HOME/bin:$PATH
+script:
+  - ./tor-droid-make.sh fetch
+  - ./tor-droid-make.sh build
+after_failure:
+  - cat external/*/config.log
