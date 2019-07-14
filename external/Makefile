@@ -29,7 +29,11 @@ endif
 # Android NDK setup
 ANDROID_NDK_HOME ?= /opt/android-ndk
 ANDROID_NDK ?= $(ANDROID_NDK_HOME)
-NDK_PLATFORM_LEVEL ?= 16
+ifneq ($(findstring 64, $(APP_ABI)),)
+  NDK_PLATFORM_LEVEL ?= 21
+else
+  NDK_PLATFORM_LEVEL ?= 16
+endif
 NDK_TOOLCHAIN_VERSION=4.9
 NDK_BIT ?= 32
 APP_ABI ?= armeabi
