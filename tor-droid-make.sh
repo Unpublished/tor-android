@@ -33,15 +33,14 @@ check_android_dependencies()
 build_external_dependencies()
 {
     check_android_dependencies
-    APP_ABI=armeabi make -C external clean 
-    APP_ABI=armeabi make -C external 
-    APP_ABI=arm64 NDK_PLATFORM_LEVEL=21 NDK_BIT=64 make -C external clean 
-    APP_ABI=arm64 NDK_PLATFORM_LEVEL=21 NDK_BIT=64 make -C external
-    APP_ABI=x86 make -C external clean
-    APP_ABI=x86 make -C external 
-    APP_ABI=x86_64 NDK_PLATFORM_LEVEL=21 NDK_BIT=64 make -C external clean
-    APP_ABI=x86_64 NDK_PLATFORM_LEVEL=21 NDK_BIT=64 make -C external
-
+    APP_ABI=armeabi make -s -C external clean
+    APP_ABI=armeabi make -s -C external
+    APP_ABI=arm64 NDK_PLATFORM_LEVEL=21 NDK_BIT=64 make -s -C external clean
+    APP_ABI=arm64 NDK_PLATFORM_LEVEL=21 NDK_BIT=64 make -s -C external
+    APP_ABI=x86 make -s -C external clean
+    APP_ABI=x86 make -s -C external
+    APP_ABI=x86_64 NDK_PLATFORM_LEVEL=21 NDK_BIT=64 make -s -C external clean
+    APP_ABI=x86_64 NDK_PLATFORM_LEVEL=21 NDK_BIT=64 make -s -C external
 }
 
 build_app()
